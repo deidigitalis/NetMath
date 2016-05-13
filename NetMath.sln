@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetMath.Statistics.Test", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetMath.Statistics", "NetMath.Statistics\NetMath.Statistics.csproj", "{0B887896-0825-45E0-AB3B-6E8C268FD982}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetMath.Core", "NetMath.Core\NetMath.Core.csproj", "{D1344AED-D4FF-4CC7-B741-B04693AFEAFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetMath.Core.Test", "NetMath.Core.Test\NetMath.Core.Test.csproj", "{660893A9-F3B0-4305-A30D-32253F9966BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{0B887896-0825-45E0-AB3B-6E8C268FD982}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B887896-0825-45E0-AB3B-6E8C268FD982}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B887896-0825-45E0-AB3B-6E8C268FD982}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1344AED-D4FF-4CC7-B741-B04693AFEAFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1344AED-D4FF-4CC7-B741-B04693AFEAFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1344AED-D4FF-4CC7-B741-B04693AFEAFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1344AED-D4FF-4CC7-B741-B04693AFEAFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{660893A9-F3B0-4305-A30D-32253F9966BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{660893A9-F3B0-4305-A30D-32253F9966BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{660893A9-F3B0-4305-A30D-32253F9966BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{660893A9-F3B0-4305-A30D-32253F9966BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

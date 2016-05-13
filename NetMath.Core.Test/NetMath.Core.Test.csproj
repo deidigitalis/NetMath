@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FDC5B06E-0F5D-4D84-AAEF-017F922F14A1}</ProjectGuid>
+    <ProjectGuid>{660893A9-F3B0-4305-A30D-32253F9966BE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NetMath.Statistics.Test</RootNamespace>
-    <AssemblyName>NetMath.Statistics.Test</AssemblyName>
+    <RootNamespace>NetMath.Core.Test</RootNamespace>
+    <AssemblyName>NetMath.Core.Test</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -45,25 +45,18 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
-          <Private>False</Private>
-        </Reference>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
       </ItemGroup>
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="ModeEnumerableTest.cs" />
-    <Compile Include="QuantileEnumerableTest.cs" />
+    <Compile Include="IntervalTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NetMath.Core\NetMath.Core.csproj">
-      <Project>{D1344AED-D4FF-4CC7-B741-B04693AFEAFB}</Project>
+      <Project>{d1344aed-d4ff-4cc7-b741-b04693afeafb}</Project>
       <Name>NetMath.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NetMath.Statistics\NetMath.Statistics.csproj">
-      <Project>{0b887896-0825-45e0-ab3b-6e8c268fd982}</Project>
-      <Name>NetMath.Statistics</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
