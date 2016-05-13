@@ -12,26 +12,8 @@ namespace NetMath.Statistics.Mode
         /// <param name="distribution">Sorted distribution (from lowest to highest)</param>
         public static double Mode(this IEnumerable<double> distribution)
         {
-            if (distribution == null) throw new ArgumentNullException(nameof(distribution));
-
-            var collection = distribution as IList<double> ?? distribution.ToList();
-
-            if (collection.Count == 0)
-                throw new InvalidOperationException("The distribution has to contain at least one value.");
-
-            var frecuencies = new List<ValueFrecuencyPair>();
-            foreach (var v in collection)
-            {
-                var pair = frecuencies.FirstOrDefault(x => Math.Abs(x.Value - v) < 1e-6);
-
-                if (pair == null)
-                    frecuencies.Add(new ValueFrecuencyPair(v, 1));
-                else
-                    pair.Frecuency++;
-            }
-
+            var frecuencies = ValueFrecuencyPair.Convert(distribution);
             ValueFrecuencyPair maximumFrecuency = frecuencies.Mode();
-
             return maximumFrecuency.Value;
         }
 
