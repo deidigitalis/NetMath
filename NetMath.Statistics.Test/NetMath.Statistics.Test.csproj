@@ -55,6 +55,7 @@
     <Compile Include="ModeEnumerableTest.cs" />
     <Compile Include="QuantileEnumerableTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VarianceEnumerableTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NetMath.Core\NetMath.Core.csproj">

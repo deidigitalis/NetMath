@@ -11,7 +11,7 @@ namespace NetMath.Statistics.Quantile
         /// </summary>
         /// <param name="sortedData">Sorted data</param>
         /// <param name="i">Decile value</param>
-        public static double Decile(this IEnumerable<double> sortedData, int i)
+        public static double Decile(this IList<double> sortedData, int i)
         {
             return Quantile(sortedData, i, 10);
         }
@@ -20,7 +20,7 @@ namespace NetMath.Statistics.Quantile
         /// Median
         /// </summary>
         /// <param name="sortedData">Sorted data</param>
-        public static double Median(this IEnumerable<double> sortedData)
+        public static double Median(this IList<double> sortedData)
         {
             return Quantile(sortedData, 1, 2);
         }
@@ -30,7 +30,7 @@ namespace NetMath.Statistics.Quantile
         /// </summary>
         /// <param name="sortedData">Sorted data</param>
         /// <param name="i">Percentile value</param>
-        public static double Percentile(this IEnumerable<double> sortedData, int i)
+        public static double Percentile(this IList<double> sortedData, int i)
         {
             return Quantile(sortedData, i, 100);
         }
@@ -38,36 +38,31 @@ namespace NetMath.Statistics.Quantile
         /// <summary>
         /// Quartile
         /// </summary>
-        /// <param name="sortedData">Sorted data</param>
+        /// <param name="distribution">Sorted data</param>
         /// <param name="i">Index</param>
         /// <param name="parts">Number of parts</param>
         /// <see cref="http://support.microsoft.com/en-us/kb/214072"/>
-        public static double Quantile(this IEnumerable<double> sortedData, int i, int parts)
+        public static double Quantile(this IList<double> distribution, int i, int parts)
         {
-            double n, f, l, r;
-            int k;
-
-            if (sortedData == null) throw new ArgumentNullException(nameof(sortedData));
+            if (distribution == null) throw new ArgumentNullException(nameof(distribution));
 
             if (parts < 2) throw new ArgumentOutOfRangeException(nameof(parts));
 
             if (i < 0 || i > parts) throw new ArgumentOutOfRangeException(nameof(i));
 
             if (i == 0)
-                return sortedData.First();
+                return distribution.First();
 
             if (i == parts)
-                return sortedData.Last();
+                return distribution.Last();
 
-            var distribution = sortedData as IList<double> ?? sortedData.ToList();
+            double n = distribution.Count;
 
-            n = distribution.Count;
+            var k = (int)Math.Truncate((i / (double)parts) * (n - 1d));
+            var f = (i / (double)parts) * (n - 1d) - k;
 
-            k = (int)Math.Truncate((i / (double)parts) * (n - 1d));
-            f = (i / (double)parts) * (n - 1d) - k;
-
-            l = distribution[k];
-            r = distribution[k + 1];
+            var l = distribution[k];
+            var r = distribution[k + 1];
 
             return l + (f * (r - l));
         }
@@ -78,7 +73,7 @@ namespace NetMath.Statistics.Quantile
         /// <param name="sortedData">Sorted data</param>
         /// <param name="i">Quartile value</param>
         /// <see cref="http://support.microsoft.com/en-us/kb/214072"/>
-        public static double Quartile(this IEnumerable<double> sortedData, int i)
+        public static double Quartile(this IList<double> sortedData, int i)
         {
             return Quantile(sortedData, i, 4);
         }

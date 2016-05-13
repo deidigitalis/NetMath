@@ -39,6 +39,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Quantile\QuantileEnumerable.cs" />
     <Compile Include="ValueFrecuencyPair.cs" />
+    <Compile Include="Variance\VarianceEnumerable.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NetMath.Core\NetMath.Core.csproj">
