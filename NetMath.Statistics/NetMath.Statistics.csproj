@@ -36,6 +36,7 @@
   <ItemGroup>
     <Compile Include="IntervalFrecuencyPair.cs" />
     <Compile Include="Mode\ModeEnumerable.cs" />
+    <Compile Include="Moment\CentralMomentEnumerable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Quantile\QuantileEnumerable.cs" />
     <Compile Include="ValueFrecuencyPair.cs" />
