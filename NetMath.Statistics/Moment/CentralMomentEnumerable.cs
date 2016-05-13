@@ -80,5 +80,35 @@ namespace NetMath.Statistics.Moment
             double avg = distribution.Sum(x => x.Frecuency * x.Value) / n;
             return distribution.Sum(x => x.Frecuency * Math.Pow(x.Value - avg, r)) / n;
         }
+
+        /// <summary>
+        /// Curtosis function
+        /// </summary>
+        /// <param name="distribution">Sorted distribution</param>
+        /// <returns>γ1</returns>
+        public static double Curtosis(this IList<double> distribution)
+        {
+            if (distribution == null) throw new ArgumentNullException(nameof(distribution));
+
+            var table = distribution.ConvertToValueFrecuencyPair();
+
+            return Curtosis(table);
+        }
+
+        /// <summary>
+        /// Curtosis function
+        /// </summary>
+        /// <param name="distribution">Sorted distribution</param>
+        /// <returns>γ1</returns>
+        public static double Curtosis(IList<ValueFrecuencyPair> distribution)
+        {
+            if (distribution == null) throw new ArgumentNullException(nameof(distribution));
+
+            double n = distribution.Sum(x => x.Frecuency);
+            double avg = distribution.Sum(x => x.Frecuency * x.Value) / n;
+            double μ2 = distribution.Sum(x => x.Frecuency * (x.Value - avg) * (x.Value - avg)) / n; // Variance
+            double μ4 = distribution.Sum(x => x.Frecuency * (x.Value - avg) * (x.Value - avg) * (x.Value - avg) * (x.Value - avg)) / n;
+            return μ4 / (μ2 * μ2) - 3d;
+        }
     }
 }

@@ -14,6 +14,9 @@ namespace NetMath.Statistics.Test
         {
             var distribution = CreateDistribution();
             double γ1 = distribution.Bias();
+            Assert.AreNotEqual(double.NaN, γ1);
+            Assert.AreNotEqual(double.NegativeInfinity, γ1);
+            Assert.AreNotEqual(double.PositiveInfinity, γ1);
         }
 
         [TestMethod]
@@ -50,6 +53,16 @@ namespace NetMath.Statistics.Test
             double m1 = distribution.CentralMoment(1);
             double m2 = distribution.CentralMoment(2);
             Assert.AreEqual(variance, m2 - m1 * m1);
+        }
+
+        [TestMethod]
+        public void TestCurtosis()
+        {
+            var distribution = CreateDistribution();
+            double γ2 = distribution.Curtosis();
+            Assert.AreNotEqual(double.NaN, γ2);
+            Assert.AreNotEqual(double.NegativeInfinity, γ2);
+            Assert.AreNotEqual(double.PositiveInfinity, γ2);
         }
 
         private static IList<double> CreateDistribution()
