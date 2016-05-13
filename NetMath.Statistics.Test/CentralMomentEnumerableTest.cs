@@ -10,6 +10,13 @@ namespace NetMath.Statistics.Test
     public class CentralMomentEnumerableTest
     {
         [TestMethod]
+        public void TestBias()
+        {
+            var distribution = CreateDistribution();
+            double γ1 = distribution.Bias();
+        }
+
+        [TestMethod]
         public void TestCentralMomentAboutMeanR1Equals0()
         {
             var distribution = CreateDistribution();
